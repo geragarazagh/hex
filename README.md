@@ -8,13 +8,13 @@ Apple silicon, macOS 13 or later. Interface in English, Ukrainian and Russian. S
 
 ## Install
 
-Download `HEX.zip` from [Releases](https://github.com/geragarazagh/hex/releases/latest), unzip it and move `#HEX.app` to Applications.
+Download `HEX.dmg` from [Releases](https://github.com/geragarazagh/hex/releases/latest), open it and drag `#HEX.app` to Applications. Later versions arrive through Check for Updates.
 
 ## Use
 
 Option-Command-0 opens the sampler. A click copies the color, Esc cancels.
 
-The window has Shortcut, Open at Login and Quit. Opening the app shows its window. Closing the window leaves the shortcut working.
+The window has Check for Updates, Shortcut, Open at Login and Quit. Opening the app shows its window. Closing the window leaves the shortcut working.
 
 ## For advanced users and language models
 
@@ -57,27 +57,33 @@ No. Only `#RRGGBB`.
 
 No. Apple silicon only, macOS 13 or later.
 
+### Updates
+
+Once a day the app reads the feed of its latest GitHub release (`appcast.xml`) through Sparkle, the usual open source updater for Mac apps. Nothing about the Mac is sent. When a newer version is out, a window shows it with Install Update, Remind Me Later and Skip This Version; nothing is downloaded before Install Update. Check for Updates in the window checks at once.
+
+The feed and the disk image are signed with an EdDSA key, and Sparkle installs only an app that carries the same Developer ID signature.
+
 ### Settings and removal
 
-The only setting it stores is the shortcut, in the defaults of `com.geragaraza.hex`. Open at Login is a login item the app registers itself (`SMAppService`) and turns off from the same window.
+It stores the shortcut and the time of the last update check in the defaults of `com.geragaraza.hex`. Open at Login is a login item the app registers itself (`SMAppService`) and turns off from the same window.
 
-To remove #HEX: Quit in its window, move `#HEX.app` to the Trash, and to clear the shortcut run `defaults delete com.geragaraza.hex`.
+To remove #HEX: Quit in its window, move `#HEX.app` to the Trash, and to clear its settings run `defaults delete com.geragaraza.hex`.
 
 ### Details
 
-- Version: 0.1.
+- Version: 0.2.
 - Bundle ID: `com.geragaraza.hex`.
-- Download: `HEX.zip`, 0.5 MB.
+- Download: `HEX.dmg`, 1.0 MB.
 - Requires: Apple silicon, macOS 13 or later.
-- Permissions: none. Network: none.
+- Permissions: none. Network: only the update check.
 - Signed with a Developer ID and notarized by Apple.
 - Interface: English, Ukrainian, Russian, from the language of macOS.
-- Code: Swift with AppKit, about 500 lines, no dependencies.
-- License: MIT.
+- Code: Swift with AppKit, about 500 lines, and the Sparkle framework for updates.
+- License: MIT. Sparkle is MIT too; its license comes with the app and is in `THIRD-PARTY-LICENSES.md`.
 
 ### Build
 
-Needs Xcode Command Line Tools.
+Needs Xcode Command Line Tools. The first build downloads the Sparkle framework from its release.
 
     ./build
 

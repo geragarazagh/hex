@@ -1,4 +1,6 @@
 .DS_Store
 \#HEX.app
-HEX.zip
-.notary.json
+vendor/Sparkle.framework
+*.dmg
+.release
+appcast.xml
