@@ -1,5 +1,6 @@
-// #HEX app icon, drawn with Core Graphics at 1024 px on Apple's macOS grid (824 px plate, dark on
-// purpose: macOS 27 darkens plain icons by a hidden heuristic). The scene is Apple's own colour sampler loupe, copied
+// #HEX app icon. Since 2026-11-09 an Icon Composer icon (macOS 26+ switches it with the theme, Apple's way):
+// this draws only the picture, 1024 px, transparent, the same in light and dark (the loupe looks the same on
+// any screen); the plate is the system's own fill, ./build writes icon.json and runs actool. The scene is Apple's own colour sampler loupe, copied
 // from a screen recording of it: the thick outer ring takes the colour of the centre
 // pixel, a thin inner line, 9 magnified pixels across with faint grid lines, the centre pixel framed
 // by a rounded square (white on dark pixels, black on light). Measured at 2x on a 242 px loupe:
@@ -7,7 +8,7 @@
 // Under the loupe is a rainbow in the manner of the Colors panel's Spectrum: hues top to bottom, light
 // to dark left to right. Its centre is a light cyan, so the ring is that cyan: the icon obeys the
 // loupe's own rule.
-// Usage: swiftc icon.swift -o /tmp/icon && /tmp/icon out.png   (./build does this)
+// Usage: ./build runs this: icon <dir> writes <dir>/light.png and <dir>/dark.png (identical).
 
 import AppKit
 
@@ -35,13 +36,8 @@ func cell(_ i: Int, _ j: Int) -> RGB {
 }
 
 func draw(_ c: CGContext) {
-    // plate
-    let plate = CGRect(x: 100, y: 100, width: 824, height: 824)
-    c.saveGState()
-    c.addPath(CGPath(roundedRect: plate, cornerWidth: 185, cornerHeight: 185, transform: nil)); c.clip()
-    let g = CGGradient(colorsSpace: CGColorSpace(name: CGColorSpace.sRGB), colors: [CGColor(srgbRed: 0x2C / 255, green: 0x2C / 255, blue: 0x2E / 255, alpha: 1), CGColor(srgbRed: 0x0F / 255, green: 0x0F / 255, blue: 0x10 / 255, alpha: 1)] as CFArray, locations: [0, 1])!
-    c.drawLinearGradient(g, start: CGPoint(x: 0, y: plate.maxY), end: CGPoint(x: 0, y: plate.minY), options: [])
-    c.restoreGState()
+    // The plate is the system's fill now; the old 824 px plate becomes the whole 1024 canvas.
+    c.scaleBy(x: 1024 / 824, y: 1024 / 824); c.translateBy(x: -100, y: -100)
 
     // loupe
     let o = CGPoint(x: 512, y: 512), D: CGFloat = 640
@@ -76,4 +72,5 @@ NSGraphicsContext.current = NSGraphicsContext(bitmapImageRep: rep)
 NSGraphicsContext.current!.cgContext.clear(CGRect(x: 0, y: 0, width: 1024, height: 1024))
 draw(NSGraphicsContext.current!.cgContext)
 NSGraphicsContext.restoreGraphicsState()
-try! rep.representation(using: .png, properties: [:])!.write(to: URL(fileURLWithPath: CommandLine.arguments[1]))
+let png = rep.representation(using: .png, properties: [:])!
+for n in ["light", "dark"] { try! png.write(to: URL(fileURLWithPath: CommandLine.arguments[1] + "/\(n).png")) }

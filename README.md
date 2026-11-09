@@ -1,4 +1,4 @@
-<img src="docs/icon.png" width="128" alt="#HEX icon">
+<picture><source media="(prefers-color-scheme: dark)" srcset="docs/icon-dark.png"><img src="docs/icon.png" width="128" alt="#HEX icon"></picture>
 
 # #HEX: color picker for Mac
 
@@ -6,15 +6,17 @@ Free, open source color picker (eyedropper) for macOS. Press a keyboard shortcut
 
 Apple silicon, macOS 13 or later. Interface in English, Ukrainian and Russian. Signed with a Developer ID and notarized by Apple.
 
+![#HEX in use: the macOS loupe on the red field of Mondrian's Composition II in Red, Blue, and Yellow, open in Preview, and the five picked codes in TextEdit, dark appearance](docs/scene.webp)
+
 ## Install
 
-With [Homebrew](https://brew.sh):
+Download `HEX.dmg` from [Releases](https://github.com/geragarazagh/hex/releases/latest), open it and drag `#HEX.app` to Applications. Later versions arrive through Check for Updates.
+
+Or with [Homebrew](https://brew.sh):
 
 ```sh
 brew install geragarazagh/tap/hex
 ```
-
-Or download `HEX.dmg` from [Releases](https://github.com/geragarazagh/hex/releases/latest), open it and drag `#HEX.app` to Applications. Later versions arrive through Check for Updates.
 
 ## Use
 
@@ -79,9 +81,9 @@ Installed with Homebrew, `brew uninstall --zap hex` quits it and removes the app
 
 ### Details
 
-- Version: 0.2.
+- Version: 0.3.
 - Bundle ID: `com.geragaraza.hex`.
-- Download: `HEX.dmg`, 1.0 MB.
+- Download: `HEX.dmg`, 1.7 MB.
 - Requires: Apple silicon, macOS 13 or later.
 - Permissions: none. Network: only the update check.
 - Signed with a Developer ID and notarized by Apple.
@@ -91,7 +93,7 @@ Installed with Homebrew, `brew uninstall --zap hex` quits it and removes the app
 
 ### Build
 
-Needs Xcode Command Line Tools. The first build downloads the Sparkle framework from its release.
+Needs Xcode 26 or later in Applications: the Swift compiler, and actool with Icon Composer for the light and dark icon. The first build downloads the Sparkle framework from its release.
 
     ./build
 
