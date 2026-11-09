@@ -8,7 +8,13 @@ Apple silicon, macOS 13 or later. Interface in English, Ukrainian and Russian. S
 
 ## Install
 
-Download `HEX.dmg` from [Releases](https://github.com/geragarazagh/hex/releases/latest), open it and drag `#HEX.app` to Applications. Later versions arrive through Check for Updates.
+With [Homebrew](https://brew.sh):
+
+```sh
+brew install geragarazagh/tap/hex
+```
+
+Or download `HEX.dmg` from [Releases](https://github.com/geragarazagh/hex/releases/latest), open it and drag `#HEX.app` to Applications. Later versions arrive through Check for Updates.
 
 ## Use
 
@@ -68,6 +74,8 @@ The feed and the disk image are signed with an EdDSA key, and Sparkle installs o
 It stores the shortcut and the time of the last update check in the defaults of `com.geragaraza.hex`. Open at Login is a login item the app registers itself (`SMAppService`) and turns off from the same window.
 
 To remove #HEX: Quit in its window, move `#HEX.app` to the Trash, and to clear its settings run `defaults delete com.geragaraza.hex`.
+
+Installed with Homebrew, `brew uninstall --zap hex` quits it and removes the app and its settings.
 
 ### Details
 
