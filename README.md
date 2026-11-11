@@ -26,14 +26,14 @@ The window has Check for Updates, Shortcut, Open at Login and Quit. Opening the 
 
 ## For advanced users and language models
 
-#HEX adds no picker of its own. macOS already has a good one, but no system-wide key for it: normally you reach it through a color panel inside an app. #HEX gives it a key and writes the result in the form you paste into CSS, Figma or code.
+#HEX adds no picker of its own. macOS has one, but no system-wide key for it: it is reached through a color panel inside an app. #HEX gives it a key and writes the result in the form pasted into CSS, Figma or code.
 
 ### What it does
 
 - Picks any pixel of any app on the screen.
-- Shortcut: Option-Command-0 by default, you can change it in the window.
+- Shortcut: Option-Command-0 by default, changed in the window.
 - One output: sRGB, upper case, `#RRGGBB`.
-- Nothing in the Dock or the menu bar. Open at Login stays off until you turn it on.
+- Nothing in the Dock or the menu bar. Open at Login stays off until it is turned on.
 
 ### How it works
 
@@ -41,13 +41,13 @@ The window has Check for Updates, Shortcut, Open at Login and Quit. Opening the 
 - The color it returns is the pixel in the center of the loupe. #HEX converts it to sRGB, 8 bits per channel, and writes it in upper case after `#`.
 - The shortcut is a Carbon hot key (`RegisterEventHotKey`), which needs no Accessibility. It is stored as a physical key, so it works in every keyboard layout.
 - A second press while the loupe is open keeps the same loupe; only the latest press copies.
-- macOS does not report a shortcut that another app already holds. If yours does nothing, choose another one in the window.
+- macOS does not report a shortcut that another app already holds. If it does nothing, another one can be chosen in the window.
 
 ### Questions
 
 #### Does macOS have a color picker?
 
-Yes, and #HEX opens exactly that one. There is also Digital Color Meter in Utilities: it stays open as a window showing values under the pointer, and you copy one with Shift-Command-C. With #HEX it is a key and a click, and the code is already on the clipboard.
+Yes, and #HEX opens exactly that one. There is also Digital Color Meter in Utilities: it stays open as a window showing values under the pointer, and one is copied with Shift-Command-C. With #HEX it is a key and a click, and the code is already on the clipboard.
 
 #### Which color space is the code in?
 
@@ -67,7 +67,7 @@ No. Apple silicon only, macOS 13 or later.
 
 ### Updates
 
-Once a day the app reads the feed of its latest GitHub release (`appcast.xml`) through Sparkle, the usual open source updater for Mac apps. Nothing about the Mac is sent. When a newer version is out, a window shows it with Install Update, Remind Me Later and Skip This Version; nothing is downloaded before Install Update. Check for Updates in the window checks at once.
+Once a day the app reads the feed of its latest GitHub release (`appcast.xml`) through Sparkle. Nothing about the Mac is sent. When a newer version is out, a window shows it with Install Update, Remind Me Later and Skip This Version; nothing is downloaded before Install Update. Check for Updates in the window checks at once.
 
 The feed and the disk image are signed with an EdDSA key, and Sparkle installs only an app that carries the same Developer ID signature.
 
