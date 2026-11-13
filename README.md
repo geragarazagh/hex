@@ -77,9 +77,17 @@ The feed and the disk image are signed with an EdDSA key, and Sparkle installs o
 
 It stores the shortcut and the time of the last update check in the defaults of `com.geragaraza.hex`. Open at Login is a login item the app registers itself (`SMAppService`) and turns off from the same window.
 
-To remove #HEX: Quit in its window, move `#HEX.app` to the Trash, and to clear its settings run `defaults delete com.geragaraza.hex`.
+To remove #HEX: Quit in its window, move `#HEX.app` to the Trash and clear its settings with this command:
 
-Installed with Homebrew, `brew uninstall --zap hex` quits it and removes the app and its settings.
+```sh
+defaults delete com.geragaraza.hex
+```
+
+Installed with Homebrew, this command quits it and removes the app and its settings:
+
+```sh
+brew uninstall --zap hex
+```
 
 ### Details
 
