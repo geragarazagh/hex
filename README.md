@@ -8,6 +8,8 @@ Free, open source color picker (eyedropper) for macOS. Press a keyboard shortcut
 
 Apple silicon, macOS 13 or later. Interface in English, Ukrainian and Russian. Signed with a Developer ID and notarized by Apple.
 
+The same color picker is part of [Pixlift](https://github.com/geragarazagh/pixlift), on Option-Command-5, together with screenshots, screen recording and text from the screen.
+
 ![#HEX in use: the macOS loupe on the red field of Mondrian's Composition II in Red, Blue, and Yellow, open in Preview, and the five picked codes in TextEdit, dark appearance](docs/scene.webp)
 
 ## Install
