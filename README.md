@@ -1,12 +1,10 @@
-English · [Українська](README_UA.md) · [Русский](README_RU.md)
-
 <picture><source media="(prefers-color-scheme: dark)" srcset="docs/icon-dark.png"><img src="docs/icon.png" width="128" alt="#HEX icon"></picture>
 
 # #HEX: color picker for Mac
 
 Free, open source color picker (eyedropper) for macOS. Press a keyboard shortcut anywhere and the color sampler of macOS opens, with its magnifier. Click any pixel on the screen and its color goes to the clipboard as a HEX code, for example `#EFEFEF`.
 
-Apple silicon, macOS 13 or later. Interface in English, Ukrainian and Russian. Signed with a Developer ID and notarized by Apple.
+Apple silicon, macOS 13 or later. Signed with a Developer ID and notarized by Apple.
 
 The same color picker is part of [Pixlift](https://github.com/geragarazagh/pixlift), on Option-Command-5, together with screenshots, screen recording and text from the screen.
 
@@ -99,7 +97,6 @@ brew uninstall --zap hex
 - Requires: Apple silicon, macOS 13 or later.
 - Permissions: none. Network: only the update check.
 - Signed with a Developer ID and notarized by Apple.
-- Interface: English, Ukrainian, Russian, from the language of macOS.
 - Code: Swift with AppKit, about 500 lines, and the Sparkle framework for updates.
 - License: MIT. Sparkle is MIT too; its license comes with the app and is in `THIRD-PARTY-LICENSES.md`.
 
