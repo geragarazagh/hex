@@ -60,6 +60,7 @@ import Carbon.HIToolbox
 startInBackgroundIfAtLogin()
 
 let args = CommandLine.arguments
+_ = MainActor.assumeIsolated { runHexCLI(args) }
 let pasteboard = args.count > 2 && args[1] == "--pasteboard" ? NSPasteboard(name: .init(args[2])) : .general
 
 MainActor.assumeIsolated {
