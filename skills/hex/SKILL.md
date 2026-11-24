@@ -11,14 +11,15 @@ Invokes Apple's zero-permission `NSColorSampler` loupe from the command line (`h
 
 ## Locate the CLI
 
-Check in order; use the first that exits 0:
+Check in order; use the first that exits 0. Use `--help`, never `--version`, and read the app's version from its Info.plist before running its binary: HEX before 0.4 has no command line at all, so it takes every flag (`--help` and `--version` alike) as a plain start and opens its window instead of failing.
 
 ```sh
-hex-cli --version
-"/Applications/#HEX.app/Contents/MacOS/HEX" --version
+hex-cli --help
+defaults read "/Applications/#HEX.app/Contents/Info" CFBundleShortVersionString
+"/Applications/#HEX.app/Contents/MacOS/HEX" --help
 ```
 
-If neither exists, tell the user how to install it (`brew install geragarazagh/tap/hex`) and stop.
+`hex-cli` exists only in versions that have the command line, so it is safe to try first. Run the third line only if the second prints 0.4 or newer; if it prints an older version, tell the user once to update HEX (Check for Updates in its menu, or `brew upgrade --cask geragarazagh/tap/hex`) and stop. If none works, tell the user how to install it (`brew install geragarazagh/tap/hex`) and stop.
 
 ## Common tasks
 
