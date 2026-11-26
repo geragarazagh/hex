@@ -4,8 +4,6 @@
 
 Color picker for Mac. A click on any pixel of the screen copies its HEX code.
 
-![#HEX in use: the macOS loupe on the red field of Mondrian's Composition II in Red, Blue, and Yellow, open in Preview, and the five picked codes in TextEdit, dark appearance](docs/scene.webp)
-
 Apple silicon, macOS 13 or later.
 
 ## Install
